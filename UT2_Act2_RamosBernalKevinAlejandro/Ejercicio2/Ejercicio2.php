@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,7 +27,7 @@
             background: #fff;
             padding: 25px 35px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 500px;
             margin-top: 20px;
@@ -90,6 +91,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1>Registro de Documentos</h1>
 
@@ -132,12 +134,11 @@
         <label><input type="checkbox" name="extension[]" value="odt"> odt</label>
         <br>
 
-        <label>palabras clave:</label
-        ><br>
+        <label>palabras clave:</label><br>
         <input type="text" name="palabras_clave" placeholder="palabra1, palabra2">
         <br>
 
-   
+
         <label>idioma:</label>
         <br>
         <select name="idioma">
@@ -154,7 +155,7 @@
         <label><input type="radio" name="visibilidad" value="Privado"> Privado</label>
         <br>
 
- 
+
         <label>tematica:</label>
         <br>
         <label><input type="checkbox" name="tematica[]" value="Administracion"> Administracion</label>
@@ -178,4 +179,5 @@
         <button type="submit">Registrar Documentos</button>
     </form>
 </body>
+
 </html>
