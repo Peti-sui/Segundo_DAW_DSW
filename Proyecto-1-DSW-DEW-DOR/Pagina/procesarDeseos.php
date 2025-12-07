@@ -1,17 +1,29 @@
 <?php 
-/* VERIFICA SI LA PETICION HTTP ES DE TIPO POST */
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-    /* OBTIENE LA ACCION RECIBIDA DEL FORMULARIO, SI NO EXISTE SE ASIGNA UNA CADENA VACIA */
     $accion = $_POST['accion'] ?? '';
 
-    /* SI LA ACCION ES 'VACIAR', SE ELIMINA LA COOKIE 'LISTADESEOS' */
+    // Vaciar lista completa
     if($accion === 'vaciar'){
-        /* ELIMINA LA COOKIE ESTABLECIENDO SU TIEMPO DE EXPIRACION EN EL PASADO */
         setcookie('listaDeseos', '', time() - 3600, '/');
+    }
+
+    // Eliminar un solo producto
+    if($accion === 'eliminar'){
+        $id = intval($_POST['id'] ?? 0);
+
+        if(isset($_COOKIE['listaDeseos'])){
+            $lista = json_decode($_COOKIE['listaDeseos'], true);
+
+            // Filtrar el producto por ID
+            $lista = array_filter($lista, function($item) use ($id){
+                return $item['id'] != $id;
+            });
+
+            // Guardar de nuevo la cookie
+            setcookie('listaDeseos', json_encode(array_values($lista)), time() + 3600*24*30, '/');
+        }
     }
 }
 
-/* REDIRIGE AL USUARIO A LA PAGINA LISTADESEOS.PHP DESPUES DE PROCESAR LA ACCION */
 header('Location: listaDeseos.php');
-?>

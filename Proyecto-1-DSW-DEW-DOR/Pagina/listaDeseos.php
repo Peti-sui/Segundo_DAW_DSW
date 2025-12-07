@@ -38,6 +38,24 @@ if(isset($_COOKIE['listaDeseos'])){
     <a href="./index.php">
         <img src="./src/IMG/Logo.png" alt="logo" style="width:90px;">
     </a>
+        <!-- 
+        NAVEGACION SUPERIOR DERECHA CON ACCESOS A LISTA DE DESEOS,
+        PREFERENCIAS Y LOGIN 
+    -->
+    <!-- 
+        NAVEGACION SUPERIOR DERECHA CON ACCESOS A LISTA DE DESEOS,
+        PREFERENCIAS Y LOGIN 
+    -->
+    <nav class="barraArribaDerecha">
+    <a href="./index.php">Inicio</a>
+    <a href="./listaDeseos.php">Lista de Deseos</a>
+    <a href="./preferencias.php">Preferencias</a>
+    <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="./logout.php">Logout</a>
+    <?php else: ?>
+        <a href="./login.php">Login</a>
+    <?php endif; ?>
+</nav>
 </header>
 
 <main>
@@ -61,7 +79,15 @@ if(isset($_COOKIE['listaDeseos'])){
             foreach($listaDeseos as $item): ?>
                 
                 <!-- IMPRESION DEL NOMBRE Y PRECIO DEL PRODUCTO CON ESCAPADO DE SEGURIDAD -->
-                <li><?= htmlspecialchars($item['nombre']) ?> - €<?= number_format($item['precio'], 2) ?></li>
+                <li>
+    <?= htmlspecialchars($item['nombre']) ?> - €<?= number_format($item['precio'], 2) ?>
+    
+    <form method="post" action="procesarDeseos.php" style="display:inline;">
+        <input type="hidden" name="id" value="<?= $item['id'] ?>">
+        <button type="submit" name="accion" value="eliminar">Eliminar</button>
+    </form>
+</li>
+
             
             <?php 
             /* ACUMULACION DEL PRECIO DEL ITEM ACTUAL */

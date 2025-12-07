@@ -51,22 +51,41 @@ $modo = $preferencias['modo'] ?? 'claro';
         PREFERENCIAS Y LOGIN 
     -->
     <nav class="barraArribaDerecha">
-        <a href="./listaDeseos.php">Lista de Deseos</a>
-        <a href="./preferencias.php">Preferencias</a>
+    <a href="./index.php">Inicio</a>
+    <a href="./listaDeseos.php">Lista de Deseos</a>
+    <a href="./preferencias.php">Preferencias</a>
+    <?php if (isset($_SESSION['usuario'])): ?>
+        <a href="./logout.php">Logout</a>
+    <?php else: ?>
         <a href="./login.php">Login</a>
-    </nav>
+    <?php endif; ?>
+</nav>
 </header>
 
 <body>
 
-    <!-- SECCION PARA MOSTRAR EL RESUMEN DE DESEOS -->
-    <div class="resumenDeseos"></div>
+<?php if (isset($_SESSION['usuario'])): ?>
+        <?php if (!empty($_SESSION['esAdmin'])): ?>
+            <div class="bienvenidaAdmin">
+                <strong>Bienvenido, Administrador 👑</strong>
+            </div>
+        <?php else: ?>
+            <div class="bienvenidaUsuario">
+                <strong>Bienvenido/a, <?php echo htmlspecialchars($_SESSION['usuario']); ?> !</strong>
+            </div>
+        <?php endif; ?>
+    <?php endif; ?>
 
     <!-- CONTENEDOR DINAMICO PARA LA VISUALIZACION DE PRODUCTOS -->
     <div class="muestraProductos"></div>
 
     <!-- SECCION DESTINADA A MOSTRAR EL RESUMEN DEL CARRITO -->
     <div class="resumenCarrito"></div>
+
+    <!-- SECCION PARA MOSTRAR EL RESUMEN DE DESEOS -->
+    <div class="resumenDeseos"></div>
+
+    
 
 </body>
 
