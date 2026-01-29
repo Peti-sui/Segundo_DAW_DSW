@@ -1,66 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-</head>
-<body>
-
 <?php
-//EJEMPLO DE USO
+session_start();
+if (!isset($_SESSION['id'])) {
+    header("Location: auth/login.php");
+    exit;
+}
 
-require_once 'clases/Producto.php';
-require_once 'clases/Llavero.php';
-require_once 'clases/Paquete.php';
-require_once 'clases/PaqueteLlaves.php';
-require_once 'clases/PaqueteBolso.php';
-require_once 'clases/PaqueteMochila.php';
+require_once 'config/db.php';
 
-// 1️⃣ Crear productos (llaveros)
-$llaveroLlaves   = new Llavero("Llavero llaves", 5.00, "llaves");
-$llaveroBolso    = new Llavero("Llavero bolso", 7.50, "bolso");
-$llaveroMochila  = new Llavero("Llavero mochila", 6.00, "mochila");
+$productos = $conn->query("SELECT * FROM productos");
+?>
 
-// 2️⃣ Crear paquetes
-$paqueteLlaves   = new PaqueteLlaves($llaveroLlaves, 3);
-$paqueteBolso    = new PaqueteBolso($llaveroBolso, 2);
-$paqueteMochila  = new PaqueteMochila($llaveroMochila, 4);
+<h1>Tienda de Llaveros</h1>
 
-// 3️⃣ Mostrar resultados
-echo "<h2>Resultado de la compra</h2>";
+<?php if ($_SESSION['rol'] === 'admin'): ?>
+    <p>Bienvenido administrador</p>
+<?php endif; ?>
 
-echo "<p>Paquete llaves:</p>";
-echo "<ul>";
-echo "<li>Producto: " . $llaveroLlaves->getNombre() . "</li>";
-echo "<li>Cantidad: 3</li>";
-echo "<li>Importe total: " . $paqueteLlaves->getImporteTotal() . " €</li>";
-echo "</ul>";
+<?php while ($p = $productos->fetch_assoc()): ?>
+    <div>
+        <h3><?= $p['nombre'] ?></h3>
+        <p><?= $p['precio'] ?> €</p>
 
-echo "<p>Paquete bolso:</p>";
-echo "<ul>";
-echo "<li>Producto: " . $llaveroBolso->getNombre() . "</li>";
-echo "<li>Cantidad: 2</li>";
-echo "<li>Importe total: " . $paqueteBolso->getImporteTotal() . " €</li>";
-echo "</ul>";
+        <form action="carrito/agregar.php" method="post">
+            <input type="hidden" name="id" value="<?= $p['id'] ?>">
+            <button>Añadir</button>
+        </form>
+    </div>
+<?php endwhile; ?>
 
-echo "<p>Paquete mochila:</p>";
-echo "<ul>";
-echo "<li>Producto: " . $llaveroMochila->getNombre() . "</li>";
-echo "<li>Cantidad: 4</li>";
-echo "<li>Importe total: " . $paqueteMochila->getImporteTotal() . " €</li>";
-echo "</ul>";
-
-// 4️⃣ Totales por tipo (como pide el enunciado)
-$totalLlaves   = $paqueteLlaves->getImporteTotal();
-$totalBolso    = $paqueteBolso->getImporteTotal();
-$totalMochila  = $paqueteMochila->getImporteTotal();
-
-echo "<h3>Totales</h3>";
-echo "<p>Total llaves: $totalLlaves €</p>";
-echo "<p>Total bolso: $totalBolso €</p>";
-echo "<p>Total mochila: $totalMochila €</p>";
-
-
-
+<a href="carrito/ver.php">Ver carrito</a>
+<?php if ($_SESSION['rol'] === 'admin'): ?>
+    <a href="admin/index.php">Panel de administración</a>
+<?php endif; ?>
+<a href="preferencias.php">Preferencias</a>
+<a href="auth/logout.php">Salir</a>
 
