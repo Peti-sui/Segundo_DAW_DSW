@@ -1,25 +1,11 @@
 <?php
+require_once 'Producto.php';
 
-require_once 'Llavero.php';
-
-abstract class Paquete
+abstract class Paquete extends Producto
 {
-    protected Llavero $producto;
-    protected int $cantidad;
-    protected float $importeTotal;
-
-    public function __construct(Llavero $producto, int $cantidad)
+    public function __construct(string $nombre, float $precio, string $tipo = '')
     {
-        $this->producto = $producto;
-        $this->cantidad = $cantidad;
-        $this->importeTotal = $this->calcularImporte();
-    }
-
-    abstract protected function calcularImporte(): float;
-
-    public function getImporteTotal(): float
-    {
-        return $this->importeTotal;
+        parent::__construct($nombre, $precio, $tipo);
     }
 }
 ?>

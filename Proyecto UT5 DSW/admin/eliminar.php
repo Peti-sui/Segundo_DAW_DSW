@@ -1,18 +1,20 @@
 <?php
 session_start();
+require_once '../config/autoload.php';
 
-if (!isset($_SESSION['id']) || $_SESSION['rol'] !== 'admin') {
-    die("Acceso denegado");
-}
-
-
-session_start();
-require_once '../config/db.php';
-
-if ($_SESSION['rol'] !== 'admin') die("Acceso denegado");
+if ($_SESSION['rol'] !== 'admin') die(__('error_acceso_denegado'));
 
 $id = $_GET['id'];
+$producto = Producto::findById($id);
 
-$conn->query("DELETE FROM productos WHERE id=$id");
+if ($producto) {
+    if ($producto->getImagen() && file_exists('../uploads/' . $producto->getImagen())) {
+        unlink('../uploads/' . $producto->getImagen());
+    }
+    
+    $producto->delete();
+}
 
 header("Location: index.php");
+exit;
+?>

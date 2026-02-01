@@ -1,27 +1,24 @@
 <?php
 session_start();
-require_once '../config/db.php';
+require_once '../config/autoload.php';
 
 $errores = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    require_once '../config/db.php';
 
     $usuario  = trim($_POST['usuario'] ?? '');
     $password = $_POST['password'] ?? '';
 
-    // 1️⃣ Validaciones básicas
     if ($usuario === '' || $password === '') {
-        $errores[] = "Todos los campos son obligatorios";
+        $errores[] = __("error_todos_campos");
     }
 
-    // 2️⃣ PROHIBIR registrar admin
     if ($usuario === 'admin') {
-        $errores[] = "Ese nombre de usuario no está permitido";
+        $errores[] = __("error_usuario_no_permitido");
     }
 
     if (empty($errores)) {
-
-        // 3️⃣ Comprobar si el usuario ya existe
         $stmt = $conn->prepare(
             "SELECT id FROM usuarios WHERE usuario = ?"
         );
@@ -30,10 +27,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            $errores[] = "El usuario ya existe";
+            $errores[] = __("error_usuario_existe");
         } else {
-
-            // 4️⃣ Crear usuario NORMAL (rol fijo)
             $hash = password_hash($password, PASSWORD_DEFAULT);
             $rol  = 'user';
 
@@ -49,28 +44,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+$idioma = getIdiomaActual();
+$tema = $_COOKIE['tema'] ?? 'claro';
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="<?php echo $idioma; ?>">
 <head>
-    <title>Registro</title>
+    <title><?php echo __('registro_titulo'); ?></title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link rel="stylesheet" href="../css/tema-<?php echo $tema; ?>.css">
 </head>
-<body>
+<body class="tema-<?php echo $tema; ?>">
+    <div class="container">
+        <div class="preferencias-container">
+            <h2 class="text-center"><?php echo __('registro_titulo'); ?></h2>
 
-<h2>Registro</h2>
+            <?php if (!empty($errores)): ?>
+                <div class="error-message">
+                    <?php foreach ($errores as $error): ?>
+                        <p><?= $error ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
 
-<?php foreach ($errores as $e): ?>
-    <p style="color:red"><?= $e ?></p>
-<?php endforeach; ?>
+            <form method="post">
+                <label for="usuario"><?php echo __('usuario'); ?>:</label>
+                <input type="text" id="usuario" name="usuario" required>
+                
+                <label for="password"><?php echo __('password'); ?>:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit" class="w-100 mt-20">📝 <?php echo __('registrarse'); ?></button>
+            </form>
 
-<form method="post">
-    <input type="text" name="usuario" placeholder="Usuario">
-    <input type="password" name="password" placeholder="Contraseña">
-    <button>Registrarse</button>
-</form>
-
-<a href="login.php">Volver al login</a>
-
+            <div class="text-center mt-20">
+                <a href="login.php">← <?php echo __('volver_login'); ?></a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

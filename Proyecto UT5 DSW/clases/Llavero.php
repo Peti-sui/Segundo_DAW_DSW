@@ -1,20 +1,17 @@
 <?php
-
 require_once 'Producto.php';
 
 class Llavero extends Producto
 {
-    private string $tipo;
-
-    public function __construct(string $nombre, float $precio, string $tipo)
+    public function __construct(string $nombre, float $precio, string $tipo = '')
     {
-        parent::__construct($nombre, $precio);
-        $this->tipo = $tipo;
+        parent::__construct($nombre, $precio, $tipo);
     }
-
-    public function getTipo(): string
+    
+    // Para un llavero normal, precio base × cantidad
+    public function calcularPrecio(int $cantidad): float
     {
-        return $this->tipo;
+        return $this->precio * $cantidad;
     }
 }
 ?>

@@ -1,12 +1,17 @@
 <?php
-
 require_once 'Paquete.php';
 
 class PaqueteLlaves extends Paquete
 {
-    protected function calcularImporte(): float
+    public function __construct(string $nombre, float $precio)
     {
-        return $this->producto->getPrecio() * $this->cantidad;
+        parent::__construct($nombre, $precio, 'llaves');
+    }
+    
+    // Paquete de llaves: precio normal por cantidad
+    public function calcularPrecio(int $cantidad): float
+    {
+        return $this->precio * $cantidad;
     }
 }
 ?>
