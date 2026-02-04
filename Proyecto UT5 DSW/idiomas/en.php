@@ -90,5 +90,26 @@ return [
     'subtotal' => 'Subtotal',
     'resumen_carrito' => 'Cart Summary',
     'proceder_pago' => 'Proceed to checkout',
+
+        // New translations for validation
+        'error' => 'Error',
+        'exito' => 'Success',
+        'error_nombre_vacio' => 'Name cannot be empty',
+        'error_precio_invalido' => 'Price must be greater than 0',
+        'error_nombre_tipo_duplicado' => 'A product with this name and type already exists',
+        'error_guardar_producto' => 'Error saving product',
+        'error_actualizar_producto' => 'Error updating product',
+        'exito_producto_creado' => 'Product created successfully',
+        'exito_producto_actualizado' => 'Product updated successfully',
+        'ver_productos' => 'View products',
+        'crear_otro' => 'Create another',
+        'volver_listado' => 'Back to list',
+        'ejemplo_nombre' => 'Ex: Star keychain',
+        'regla_nombre_tipo' => 'Cannot have two products with the same name and type',
+        'regla_tipo_unico' => 'You can use the same name if the type is different',
+        'regla_tipo_seleccionado' => 'Selected type',
+        'seleccionar_tipo' => 'Select type',
+        'formato_imagen' => 'Accepted formats: JPG, PNG, GIF. Max size: 2MB',
+        'mantener_imagen' => 'Leave empty to keep current image',
 ];
 ?>

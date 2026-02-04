@@ -90,5 +90,26 @@ return [
     'subtotal' => 'Subtotal',
     'resumen_carrito' => 'Resumen del carrito',
     'proceder_pago' => 'Proceder al pago',
+
+        // Nuevas traducciones para validación
+        'error' => 'Error',
+        'exito' => 'Éxito',
+        'error_nombre_vacio' => 'El nombre no puede estar vacío',
+        'error_precio_invalido' => 'El precio debe ser mayor que 0',
+        'error_nombre_tipo_duplicado' => 'Ya existe un producto con este nombre y tipo',
+        'error_guardar_producto' => 'Error al guardar el producto',
+        'error_actualizar_producto' => 'Error al actualizar el producto',
+        'exito_producto_creado' => 'Producto creado exitosamente',
+        'exito_producto_actualizado' => 'Producto actualizado exitosamente',
+        'ver_productos' => 'Ver productos',
+        'crear_otro' => 'Crear otro',
+        'volver_listado' => 'Volver al listado',
+        'ejemplo_nombre' => 'Ej: Llavero de estrella',
+        'regla_nombre_tipo' => 'No puede haber dos productos con el mismo nombre y tipo',
+        'regla_tipo_unico' => 'Puedes usar el mismo nombre si el tipo es diferente',
+        'regla_tipo_seleccionado' => 'Tipo seleccionado',
+        'seleccionar_tipo' => 'Seleccionar tipo',
+        'formato_imagen' => 'Formatos aceptados: JPG, PNG, GIF. Tamaño máximo: 2MB',
+        'mantener_imagen' => 'Deja vacío para mantener la imagen actual',
 ];
 ?>

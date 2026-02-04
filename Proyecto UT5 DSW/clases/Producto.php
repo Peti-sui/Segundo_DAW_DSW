@@ -45,9 +45,36 @@ abstract class Producto
         return $conn;
     }
 
-    // Métodos para CRUD
+    // Método para verificar si ya existe un producto con el mismo nombre y tipo
+    public function existeMismoNombreTipo(): bool
+    {
+        $conn = self::getConnection();
+        
+        if ($this->id !== null) {
+            // Para edición: excluir el producto actual
+            $stmt = $conn->prepare("SELECT COUNT(*) as count FROM productos WHERE nombre = ? AND tipo = ? AND id != ?");
+            $stmt->bind_param("ssi", $this->nombre, $this->tipo, $this->id);
+        } else {
+            // Para creación: buscar cualquier producto con mismo nombre y tipo
+            $stmt = $conn->prepare("SELECT COUNT(*) as count FROM productos WHERE nombre = ? AND tipo = ?");
+            $stmt->bind_param("ss", $this->nombre, $this->tipo);
+        }
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        
+        return $row['count'] > 0;
+    }
+
+    // Métodos para CRUD con validación
     public function save(): bool
     {
+        // Validar que no exista producto con mismo nombre y tipo
+        if ($this->existeMismoNombreTipo()) {
+            throw new Exception("Ya existe un producto con el nombre '{$this->nombre}' del tipo '{$this->tipo}'");
+        }
+        
         $conn = self::getConnection();
         
         if ($this->id !== null) {
@@ -111,6 +138,26 @@ abstract class Producto
         }
         
         return $productos;
+    }
+
+    // Método estático para verificar si un nombre-tipo ya existe
+    public static function nombreTipoExiste(string $nombre, string $tipo, ?int $excluirId = null): bool
+    {
+        $conn = self::getConnection();
+        
+        if ($excluirId !== null) {
+            $stmt = $conn->prepare("SELECT COUNT(*) as count FROM productos WHERE nombre = ? AND tipo = ? AND id != ?");
+            $stmt->bind_param("ssi", $nombre, $tipo, $excluirId);
+        } else {
+            $stmt = $conn->prepare("SELECT COUNT(*) as count FROM productos WHERE nombre = ? AND tipo = ?");
+            $stmt->bind_param("ss", $nombre, $tipo);
+        }
+        
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $row = $result->fetch_assoc();
+        
+        return $row['count'] > 0;
     }
 
     // Método PÚBLICO para crear objeto desde array

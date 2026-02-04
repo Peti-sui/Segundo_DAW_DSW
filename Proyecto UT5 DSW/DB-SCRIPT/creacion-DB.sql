@@ -13,7 +13,9 @@ CREATE TABLE productos (
     nombre VARCHAR(100),
     precio DECIMAL(6,2),
     tipo ENUM('llaves','bolso','mochila'),
-    imagen VARCHAR(255)
+    imagen VARCHAR(255),
+    -- RESTRICCIÓN ÚNICA: No puede haber dos productos con mismo nombre y tipo
+    UNIQUE KEY unique_nombre_tipo (nombre, tipo)
 );
 
 CREATE TABLE carrito (
@@ -25,6 +27,7 @@ CREATE TABLE carrito (
     FOREIGN KEY (producto_id) REFERENCES productos(id) ON DELETE CASCADE
 );
 
+-- Insertar usuario admin si no existe
 INSERT INTO usuarios (usuario, password, rol)
 SELECT 'admin', 
        '$2y$10$25zQOOAo2UESzPksFA6tsuOIsUJu5yBHckQkIr5BR6Uu4Br3C0i3W',
@@ -33,8 +36,16 @@ WHERE NOT EXISTS (
     SELECT 1 FROM usuarios WHERE usuario = 'admin'
 );
 
-drop database tienda_llaveros;
+-- Para eliminar la base de datos (cuidado, borra todo)
+DROP DATABASE tienda_llaveros;
 
-select * from carrito;
+-- Consultas útiles para testing
+SELECT * FROM usuarios;
+SELECT * FROM productos;
+SELECT * FROM carrito;
 
-select * from usuarios;
+-- Consulta para verificar la restricción única
+SELECT nombre, tipo, COUNT(*) as cantidad 
+FROM productos 
+GROUP BY nombre, tipo 
+HAVING cantidad > 1;
