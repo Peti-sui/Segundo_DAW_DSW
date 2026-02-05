@@ -7,8 +7,8 @@ class PaqueteLlaves extends Paquete
     {
         parent::__construct($nombre, $precio, 'llaves');
     }
-    
-    // Paquete de llaves: precio normal por cantidad
+
+
     public function calcularPrecio(int $cantidad): float
     {
         return $this->precio * $cantidad;

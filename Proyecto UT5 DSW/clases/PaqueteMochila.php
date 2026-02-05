@@ -7,8 +7,7 @@ class PaqueteMochila extends Paquete
     {
         parent::__construct($nombre, $precio, 'mochila');
     }
-    
-    // Paquete de mochila: doble precio por cantidad (producto premium)
+
     public function calcularPrecio(int $cantidad): float
     {
         return ($this->precio * $cantidad) * 2;

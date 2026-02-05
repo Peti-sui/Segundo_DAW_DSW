@@ -1,7 +1,6 @@
-/* TEMA CLARO */
 body.tema-claro {
     background-color: #f8f9fa;
-    color: #333333;
+    color: #333;
 }
 
 body.tema-claro h1,
@@ -10,76 +9,35 @@ body.tema-claro h3 {
     color: #2c3e50;
 }
 
-/* Enlaces en tema claro */
+/* Enlaces */
+body.tema-claro a:not(.nav-links a) {
+    color: #3498db;
+}
+body.tema-claro a:not(.nav-links a):hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
 body.tema-claro .nav-links a {
-    background-color: #ffffff;
+    background-color: #fff;
     color: #3498db;
     border: 1px solid #dee2e6;
 }
-
 body.tema-claro .nav-links a:hover {
     background-color: #3498db;
-    color: white;
+    color: #fff;
     border-color: #3498db;
 }
 
-/* Productos en tema claro */
-body.tema-claro .producto {
-    background-color: #ffffff;
+/* Productos y contenedores */
+body.tema-claro .producto,
+body.tema-claro .preferencias-container {
+    background-color: #fff;
     border-color: #dee2e6;
 }
 
 body.tema-claro .producto:hover {
     box-shadow: 0 8px 20px rgba(52, 152, 219, 0.15);
-}
-
-/* Formularios en tema claro */
-body.tema-claro input,
-body.tema-claro select,
-body.tema-claro textarea {
-    background-color: white;
-    color: #495057;
-    border-color: #ced4da;
-}
-
-body.tema-claro input:focus,
-body.tema-claro select:focus,
-body.tema-claro textarea:focus {
-    border-color: #3498db;
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
-}
-
-body.tema-claro button {
-    background-color: #3498db;
-    color: white;
-}
-
-body.tema-claro button:hover {
-    background-color: #2980b9;
-}
-
-/* Tablas en tema claro */
-body.tema-claro table {
-    border-color: #dee2e6;
-}
-
-body.tema-claro th {
-    background-color: #f8f9fa;
-    color: #495057;
-}
-
-body.tema-claro tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-body.tema-claro tr:hover {
-    background-color: #e9ecef;
-}
-
-/* Contenedores específicos */
-body.tema-claro .preferencias-container {
-    background-color: #ffffff;
-    border-color: #dee2e6;
 }
 
 body.tema-claro .info-box {
@@ -94,14 +52,54 @@ body.tema-claro .admin-notice {
     border-color: #ffeaa7;
 }
 
-/* Enlaces generales */
-body.tema-claro a:not(.nav-links a) {
-    color: #3498db;
+/* Formularios */
+body.tema-claro input,
+body.tema-claro select,
+body.tema-claro textarea {
+    background-color: #fff;
+    color: #495057;
+    border-color: #ced4da;
 }
 
-body.tema-claro a:not(.nav-links a):hover {
-    color: #2980b9;
-    text-decoration: underline;
+body.tema-claro input:focus,
+body.tema-claro select:focus,
+body.tema-claro textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+/* Botones */
+body.tema-claro button {
+    background-color: #3498db;
+    color: #fff;
+}
+body.tema-claro button:hover {
+    background-color: #2980b9;
+}
+
+body.tema-claro .carrito-acciones button {
+    background-color: #6c757d;
+}
+body.tema-claro .carrito-acciones button:hover {
+    background-color: #545b62;
+}
+
+/* Tablas */
+body.tema-claro table,
+body.tema-claro .producto,
+body.tema-claro .preferencias-container,
+body.tema-claro .info-box {
+    border-color: #dee2e6;
+}
+
+body.tema-claro th,
+body.tema-claro tr:nth-child(even) {
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+body.tema-claro tr:hover {
+    background-color: #e9ecef;
 }
 
 /* Mensajes */
@@ -115,13 +113,4 @@ body.tema-claro .success-message {
     color: #155724;
     background-color: #d4edda;
     border-color: #c3e6cb;
-}
-
-/* Carrito */
-body.tema-claro .carrito-acciones button {
-    background-color: #6c757d;
-}
-
-body.tema-claro .carrito-acciones button:hover {
-    background-color: #545b62;
 }

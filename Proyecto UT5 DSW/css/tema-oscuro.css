@@ -1,4 +1,3 @@
-/* TEMA OSCURO */
 body.tema-oscuro {
     background-color: #121212;
     color: #e0e0e0;
@@ -6,15 +5,23 @@ body.tema-oscuro {
 
 body.tema-oscuro h1,
 body.tema-oscuro h2,
-body.tema-oscuro h3 {
+body.tema-oscuro h3,
+body.tema-oscuro th {
     color: #ffffff;
     border-bottom-color: #444;
 }
 
-/* Enlaces en tema oscuro */
+body.tema-oscuro a {
+    color: #66b3ff;
+}
+
+body.tema-oscuro a:hover {
+    color: #3399ff;
+    text-decoration: underline;
+}
+
 body.tema-oscuro .nav-links a {
     background-color: #1e1e1e;
-    color: #66b3ff;
     border: 1px solid #444;
 }
 
@@ -24,8 +31,8 @@ body.tema-oscuro .nav-links a:hover {
     border-color: #66b3ff;
 }
 
-/* Productos en tema oscuro */
-body.tema-oscuro .producto {
+body.tema-oscuro .producto,
+body.tema-oscuro .preferencias-container {
     background-color: #1e1e1e;
     border-color: #444;
 }
@@ -34,7 +41,6 @@ body.tema-oscuro .producto:hover {
     box-shadow: 0 8px 20px rgba(102, 179, 255, 0.15);
 }
 
-/* Formularios en tema oscuro */
 body.tema-oscuro input,
 body.tema-oscuro select,
 body.tema-oscuro textarea {
@@ -52,21 +58,15 @@ body.tema-oscuro textarea:focus {
 
 body.tema-oscuro button {
     background-color: #2196F3;
-    color: white;
+    color: #fff;
 }
 
 body.tema-oscuro button:hover {
     background-color: #1976D2;
 }
 
-/* Tablas en tema oscuro */
 body.tema-oscuro table {
     border-color: #444;
-}
-
-body.tema-oscuro th {
-    background-color: #2d2d2d;
-    color: #ffffff;
 }
 
 body.tema-oscuro tr:nth-child(even) {
@@ -75,12 +75,6 @@ body.tema-oscuro tr:nth-child(even) {
 
 body.tema-oscuro tr:hover {
     background-color: #2d2d2d;
-}
-
-/* Contenedores específicos */
-body.tema-oscuro .preferencias-container {
-    background-color: #1e1e1e;
-    border-color: #444;
 }
 
 body.tema-oscuro .info-box {
@@ -95,17 +89,6 @@ body.tema-oscuro .admin-notice {
     border-color: #856404;
 }
 
-/* Enlaces generales */
-body.tema-oscuro a:not(.nav-links a) {
-    color: #66b3ff;
-}
-
-body.tema-oscuro a:not(.nav-links a):hover {
-    color: #3399ff;
-    text-decoration: underline;
-}
-
-/* Mensajes */
 body.tema-oscuro .error-message {
     color: #f8d7da;
     background-color: #721c24;
@@ -118,7 +101,6 @@ body.tema-oscuro .success-message {
     border-color: #c3e6cb;
 }
 
-/* Carrito */
 body.tema-oscuro .carrito-acciones button {
     background-color: #555;
 }

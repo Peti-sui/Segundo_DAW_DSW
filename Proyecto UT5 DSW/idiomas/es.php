@@ -12,12 +12,18 @@ return [
     'cancelar' => 'Cancelar',
     'aceptar' => 'Aceptar',
     'confirmar' => 'Confirmar',
-    
+
     // Navegación
     'ver_carrito' => 'Ver carrito',
     'panel_admin' => 'Panel de administración',
     'preferencias' => 'Preferencias',
-    
+    'volver_admin' => 'Volver al Panel',
+    'volver_listado' => 'Volver al listado',
+    'volver_pedidos' => 'Volver a Pedidos',
+    'volver_carrito' => 'Volver al carrito',
+    'volver_login' => 'Volver al login',
+    'volver_pendiente' => 'Volver a Pendiente',
+
     // Productos
     'productos' => 'Productos',
     'nombre' => 'Nombre',
@@ -28,19 +34,36 @@ return [
     'anadir_carrito' => 'Añadir al carrito',
     'nuevo_producto' => 'Nuevo producto',
     'editar_producto' => 'Editar producto',
-    
+    'ver_productos' => 'Ver productos',
+    'crear_otro' => 'Crear otro',
+
     // Tipos de productos
     'llaves' => 'Llaves',
     'bolso' => 'Bolso',
     'mochila' => 'Mochila',
-    
+
     // Carrito
     'carrito' => 'Carrito',
     'cantidad' => 'Cantidad',
     'total' => 'Total',
+    'subtotal' => 'Subtotal',
+    'precio_unitario' => 'Precio unitario',
     'vaciar_carrito' => 'Vaciar carrito',
     'seguir_comprando' => 'Seguir comprando',
-    
+    'resumen_carrito' => 'Resumen del carrito',
+    'proceder_pago' => 'Proceder al pago',
+    'carrito_vacio' => 'Tu carrito está vacío',
+    'carrito_vacio_pago' => 'El carrito está vacío',
+    'producto_ya_en_carrito' => 'Este producto ya está en tu carrito',
+    'producto_ya_en_carrito_alerta' => 'Este producto ya está en tu carrito. Ve al carrito para modificar la cantidad.',
+    'producto_añadido' => 'Producto añadido al carrito',
+    'ya_en_carrito' => 'Ya en carrito',
+    'ir_carrito_modificar' => 'Ve al carrito para modificar la cantidad',
+    'instrucciones_carrito' => 'Instrucciones:',
+    'instruccion_1' => 'Cada producto solo se puede añadir una vez al carrito',
+    'instruccion_2' => 'Para cambiar la cantidad, ve al carrito',
+    'instruccion_3' => 'Usa los botones + y - en el carrito para modificar',
+
     // Preferencias
     'preferencias_titulo' => 'Preferencias de Usuario',
     'configuracion_actual' => 'Configuración actual',
@@ -51,17 +74,18 @@ return [
     'claro' => 'Claro',
     'oscuro' => 'Oscuro',
     'guardar_preferencias' => 'Guardar Preferencias',
-    
+
     // Auth
     'usuario' => 'Usuario',
     'password' => 'Contraseña',
     'entrar' => 'Entrar',
     'registrarse' => 'Registrarse',
     'crear_cuenta' => 'Crear cuenta',
-    'volver_login' => 'Volver al login',
     'registro_titulo' => 'Registro',
-    
-    // Mensajes de error
+
+    // Mensajes de error y validación
+    'error' => 'Error',
+    'exito' => 'Éxito',
     'error_acceso_denegado' => 'Acceso denegado',
     'error_producto_no_encontrado' => 'Producto no encontrado',
     'error_eliminar_producto' => '¿Eliminar producto?',
@@ -70,46 +94,106 @@ return [
     'error_usuario_no_permitido' => 'Ese nombre de usuario no está permitido',
     'error_usuario_no_registrado' => 'Usuario no registrado',
     'error_contrasena_incorrecta' => 'Contraseña incorrecta',
-    
+    'error_nombre_vacio' => 'El nombre no puede estar vacío',
+    'error_precio_invalido' => 'El precio debe ser mayor que 0',
+    'error_nombre_tipo_duplicado' => 'Ya existe un producto con este nombre y tipo',
+    'error_guardar_producto' => 'Error al guardar el producto',
+    'error_actualizar_producto' => 'Error al actualizar el producto',
+    'producto_duplicado' => 'Ya existe un producto con este nombre y tipo',
+
+    // Éxito
+    'exito_producto_creado' => 'Producto creado exitosamente',
+    'exito_producto_actualizado' => 'Producto actualizado exitosamente',
+
     // Panel admin
     'panel_titulo' => 'Panel de Administración',
     'no_productos' => 'No hay productos registrados',
     'sin_imagen' => 'Sin imagen',
     'imagen_actual' => 'Imagen actual',
     'nueva_imagen' => 'Nueva imagen',
-    
-    // Nuevas traducciones para el carrito y productos
+
+    // Nuevas traducciones para productos y ofertas
     'oferta' => 'OFERTA',
     'precio_efectivo' => 'precio efectivo',
     'oferta_especial' => 'Oferta Especial',
     'precio_fijo_desc' => 'Precio fijo sin importar la cantidad',
     'producto_premium' => 'Producto Premium',
     'precio_doble_desc' => 'Precio doble por unidad',
-    'carrito_vacio' => 'Tu carrito está vacío',
-    'precio_unitario' => 'Precio unitario',
-    'subtotal' => 'Subtotal',
-    'resumen_carrito' => 'Resumen del carrito',
-    'proceder_pago' => 'Proceder al pago',
+    'regla_nombre_tipo' => 'No puede haber dos productos con el mismo nombre y tipo',
+    'regla_tipo_unico' => 'Puedes usar el mismo nombre si el tipo es diferente',
+    'regla_tipo_seleccionado' => 'Tipo seleccionado',
+    'seleccionar_tipo' => 'Seleccionar tipo',
+    'formato_imagen' => 'Formatos aceptados: JPG, PNG, GIF. Tamaño máximo: 2MB',
+    'mantener_imagen' => 'Deja vacío para mantener la imagen actual',
+    'ejemplo_nombre' => 'Ej: Llavero de estrella',
 
-        // Nuevas traducciones para validación
-        'error' => 'Error',
-        'exito' => 'Éxito',
-        'error_nombre_vacio' => 'El nombre no puede estar vacío',
-        'error_precio_invalido' => 'El precio debe ser mayor que 0',
-        'error_nombre_tipo_duplicado' => 'Ya existe un producto con este nombre y tipo',
-        'error_guardar_producto' => 'Error al guardar el producto',
-        'error_actualizar_producto' => 'Error al actualizar el producto',
-        'exito_producto_creado' => 'Producto creado exitosamente',
-        'exito_producto_actualizado' => 'Producto actualizado exitosamente',
-        'ver_productos' => 'Ver productos',
-        'crear_otro' => 'Crear otro',
-        'volver_listado' => 'Volver al listado',
-        'ejemplo_nombre' => 'Ej: Llavero de estrella',
-        'regla_nombre_tipo' => 'No puede haber dos productos con el mismo nombre y tipo',
-        'regla_tipo_unico' => 'Puedes usar el mismo nombre si el tipo es diferente',
-        'regla_tipo_seleccionado' => 'Tipo seleccionado',
-        'seleccionar_tipo' => 'Seleccionar tipo',
-        'formato_imagen' => 'Formatos aceptados: JPG, PNG, GIF. Tamaño máximo: 2MB',
-        'mantener_imagen' => 'Deja vacío para mantener la imagen actual',
+    // Pago y pedidos
+    'confirmacion_pago' => 'Confirmación de Pago',
+    'pago_exitoso' => '¡Pago Exitoso!',
+    'resumen_pedido' => 'Resumen del Pedido',
+    'fecha' => 'Fecha',
+    'estado' => 'Estado',
+    'detalles_pedido' => 'Detalles del Pedido',
+    'producto' => 'Producto',
+    'mis_pedidos' => 'Mis Pedidos',
+    'no_pedidos' => 'No tienes pedidos realizados',
+    'hacer_primer_pedido' => 'Hacer mi primer pedido',
+    'pedido' => 'Pedido',
+    'total_productos' => 'Total Productos',
+    'ver_detalles' => 'Ver Detalles',
+    'detalle_pedido' => 'Detalle del Pedido',
+    'informacion_pedido' => 'Información del Pedido',
+    'productos_pedido' => 'Productos del Pedido',
+    'proceso_fallido' => 'Error en el proceso de pago',
+    'pedido_no_encontrado' => 'Pedido no encontrado',
+    'estado_actualizado' => 'Estado del pedido actualizado',
+
+    // Administración de pedidos
+    'gestion_pedidos' => 'Gestión de Pedidos',
+    'ver' => 'Ver',
+    'procesar' => 'Procesar',
+    'completar' => 'Completar',
+    'confirmar_procesar' => '¿Marcar este pedido como procesado?',
+    'confirmar_cancelar' => '¿Cancelar este pedido?',
+    'confirmar_completar' => '¿Marcar este pedido como completado?',
+    'detalle_pedido_admin' => 'Detalle del Pedido (Admin)',
+    'marcar_procesado' => 'Marcar como Procesado',
+    'cancelar_pedido' => 'Cancelar Pedido',
+    'marcar_completado' => 'Marcar como Completado',
+    'estado_pendiente' => 'Estado: Pendiente',
+    'espera_confirmacion' => 'Esperando confirmación del administrador',
+    'pedido_completado' => 'Pedido Completado',
+    'pedido_cancelado' => 'Pedido Cancelado',
+    'no_acciones_disponibles' => 'No hay acciones disponibles para este estado',
+
+    // Página pública y navegación
+    'bienvenido' => 'Bienvenido a nuestra tienda',
+    'descripcion_tienda' => 'Tienda especializada en llaveros y paquetes personalizados',
+    'iniciar_sesion' => 'Iniciar Sesión',
+    'caracteristicas' => 'Características',
+    'caracteristica_1' => 'Compra segura y rápida',
+    'caracteristica_2' => 'Ofertas especiales en paquetes',
+    'caracteristica_3' => 'Productos premium exclusivos',
+    'caracteristica_4' => 'Seguimiento de pedidos',
+    'bienvenido_usuario' => 'Bienvenido/a',
+
+    // Lista de deseos
+    'lista_deseos' => 'Lista de Deseos',
+    'anadir_deseos' => 'Añadir a Deseos',
+    'ya_en_deseos' => 'En Deseos',
+    'producto_ya_en_deseos' => 'Este producto ya está en tu lista de deseos',
+    'producto_añadido_deseos' => 'Producto añadido a la lista de deseos',
+    'producto_ya_en_deseos_alerta' => 'Este producto ya está en tu lista de deseos',
+    'deseos_vacio' => 'Tu lista de deseos está vacía',
+    'agrega_productos_deseos' => 'Añade productos que te gusten para verlos aquí',
+    'mover_carrito' => 'Mover al Carrito',
+    'eliminar_deseos_confirm' => '¿Eliminar de la lista de deseos?',
+    'vaciar_deseos' => 'Vaciar Lista de Deseos',
+    'vaciar_deseos_confirm' => '¿Vaciar toda la lista de deseos?',
+    'agregado_el' => 'Agregado el',
+    'mover_carrito_success' => 'Producto movido al carrito',
+    'error_mover' => 'Error al mover al carrito',
+    'eliminado_success' => 'Producto eliminado de deseos',
+    'vaciado_success' => 'Lista de deseos vaciada',
 ];
 ?>

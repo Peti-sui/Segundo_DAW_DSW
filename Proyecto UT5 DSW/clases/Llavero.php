@@ -7,8 +7,7 @@ class Llavero extends Producto
     {
         parent::__construct($nombre, $precio, $tipo);
     }
-    
-    // Para un llavero normal, precio base × cantidad
+
     public function calcularPrecio(int $cantidad): float
     {
         return $this->precio * $cantidad;

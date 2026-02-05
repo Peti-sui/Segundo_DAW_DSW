@@ -1,307 +1,380 @@
-/* Estilos generales para toda la aplicación */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    transition: background-color 0.3s, color 0.3s;
-    min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Encabezados */
 h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    border-bottom: 2px solid;
-    padding-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid;
+  padding-bottom: 10px;
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 h3 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-/* Navegación */
 .nav-links {
-    margin: 20px 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .nav-links a {
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: all 0.3s;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .nav-links a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Productos */
 .productos-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
-    margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
 }
 
 .producto {
-    border: 1px solid;
-    padding: 20px;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    flex-direction: column;
+  border: 1px solid;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .producto:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .producto img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin: 15px 0;
-    object-fit: cover;
-    max-height: 150px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin: 15px 0;
+  object-fit: cover;
+  max-height: 150px;
 }
 
 .precio {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin: 10px 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 10px 0;
 }
 
-/* Formularios */
 form {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
 }
 
-input, select, textarea, button {
-    padding: 10px 15px;
-    margin: 8px 0;
-    border: 1px solid;
-    border-radius: 5px;
-    width: 100%;
-    font-size: 1rem;
+input,
+select,
+textarea,
+button {
+  padding: 10px 15px;
+  margin: 8px 0;
+  border: 1px solid;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1rem;
 }
 
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0,123,255,0.25);
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
 }
 
 button {
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    font-weight: 500;
-    border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  font-weight: 500;
+  border: none;
 }
 
 button:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-/* Tablas */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 25px 0;
-    border-radius: 5px;
-    overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border: 1px solid;
+th,
+td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid;
 }
 
 th {
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
 }
 
-/* Contenedores específicos */
+tr.precio {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
 .preferencias-container {
-    max-width: 500px;
-    margin: 50px auto;
-    padding: 30px;
-    border: 1px solid;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .info-box {
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 8px;
-    border: 1px solid;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  border: 1px solid;
 }
 
 .admin-notice {
-    padding: 15px 20px;
-    border-radius: 8px;
-    margin: 15px 0;
-    font-weight: 500;
+  padding: 15px 20px;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-weight: 500;
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
 }
 
-/* Utilidades */
+body.tema-oscuro .admin-notice {
+  background-color: #664d03;
+  color: #ffda6a;
+  border-color: #856404;
+}
+
 .text-center {
-    text-align: center;
+  text-align: center;
+}
+.text-small {
+  font-size: 0.9em;
 }
 
-.mt-10 { margin-top: 10px; }
-.mt-20 { margin-top: 20px; }
-.mt-30 { margin-top: 30px; }
-.mb-10 { margin-bottom: 10px; }
-.mb-20 { margin-bottom: 20px; }
-.mb-30 { margin-bottom: 30px; }
+.mt-10 {
+  margin-top: 10px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mb-10 {
+  margin-bottom: 10px;
+}
+.mb-20 {
+  margin-bottom: 20px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
 .d-flex {
-    display: flex;
+  display: flex;
 }
-
 .flex-wrap {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-
-.gap-10 {
-    gap: 10px;
-}
-
-.gap-20 {
-    gap: 20px;
-}
-
 .align-center {
-    align-items: center;
+  align-items: center;
 }
-
 .justify-between {
-    justify-content: space-between;
+  justify-content: space-between;
+}
+.gap-10 {
+  gap: 10px;
+}
+.gap-20 {
+  gap: 20px;
 }
 
-/* Badges */
 .badge {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    display: inline-block;
-    margin-left: 10px;
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-left: 10px;
 }
 
+.badge-success {
+  background-color: #28a745;
+  color: #fff;
+}
+.badge-warning {
+  background-color: #ffc107;
+  color: #212529;
+}
+.badge-error {
+  background-color: #dc3545;
+  color: #fff;
+}
+.badge-info {
+  background-color: #17a2b8;
+  color: #fff;
+}
 .badge-oferta {
-    background-color: #ff5722;
-    color: white;
+  background-color: #ff5722;
+  color: #fff;
 }
-
 .badge-premium {
-    background-color: #9c27b0;
-    color: white;
+  background-color: #9c27b0;
+  color: #fff;
 }
 
-/* Mensajes */
+.badge-wish {
+  background-color: #e91e63;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.7em;
+  margin-left: 5px;
+}
+
+.error-message,
+.success-message {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin: 15px 0;
+}
+
 .error-message {
-    color: #dc3545;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin: 15px 0;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
 }
 
 .success-message {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1px solid #c3e6cb;
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin: 15px 0;
+  color: #155724;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
 }
 
-/* Carrito */
 .carrito-acciones {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .carrito-cantidad {
-    padding: 0 15px;
-    font-weight: bold;
-    min-width: 30px;
-    text-align: center;
+  padding: 0 15px;
+  font-weight: bold;
+  min-width: 30px;
+  text-align: center;
 }
 
-/* Imágenes */
 .img-thumbnail {
-    border-radius: 5px;
-    border: 1px solid;
+  border-radius: 5px;
+  border: 1px solid;
 }
 
 .img-fluid {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Responsive */
+.ya-en-carrito,
+.ya-en-deseos {
+  display: block;
+  padding: 10px;
+  color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.ya-en-carrito {
+  background-color: #6c757d;
+}
+
+.ya-en-carrito:hover {
+  background-color: #545b62;
+}
+
+.ya-en-deseos {
+  background-color: #e91e63;
+}
+
+.ya-en-deseos:hover {
+  background-color: #c2185b;
+}
+
+body.tema-oscuro .ya-en-deseos {
+  background-color: #ad1457;
+}
+
+body.tema-oscuro .ya-en-deseos:hover {
+  background-color: #880e4f;
+}
+
 @media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    
-    .productos-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 15px;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-    
-    h2 {
-        font-size: 1.5rem;
-    }
+  .container {
+    padding: 15px;
+  }
+  .productos-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  .nav-links {
+    flex-direction: column;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
 }
